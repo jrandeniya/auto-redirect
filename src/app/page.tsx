@@ -8,7 +8,7 @@ import styles from "./page.module.css";
 let interval: NodeJS.Timer | undefined;
 
 const Redirect = ({ url }: { url: string }) => {
-  const [seconds, setSeconds] = useState(5000);
+  const [seconds, setSeconds] = useState(5);
 
   useEffect(() => {
     interval = setInterval(() => {
