@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 const crypto = require("crypto");
 
+const MERCHANT_CODE = process.env.MERCHANT_CODE || "";
 const MERCHANT_PASSWORD = process.env.MERCHANT_PASSWORD || "";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
 
   const data = {
-    merchantCode: "fwdome",
+    merchantCode: MERCHANT_CODE,
     invoiceNO: body.invoiceId,
     amount: body.amount,
     callback: body.callback,
@@ -23,9 +24,6 @@ export async function POST(request: NextRequest) {
   const values = [...Object.values(data), MERCHANT_PASSWORD].join("");
   const sumData = crypto.createHash("md5").update(values).digest("hex");
 
-  console.log("data", data);
-  console.log("values", values);
-  console.log("sumData", sumData);
 
   try {
     const response = await fetch(
