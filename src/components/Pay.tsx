@@ -14,6 +14,7 @@ export default function Pay() {
       return;
     }
 
+    setLoading(true);
     setToken(undefined);
 
     const response = await fetch("/api/token", {
@@ -33,6 +34,7 @@ export default function Pay() {
     } = await response.json();
 
     setToken(token);
+    setLoading(false);
   };
 
   return (
