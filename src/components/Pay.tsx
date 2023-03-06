@@ -102,7 +102,7 @@ export default function Pay() {
               <div id="credit-from">
                 <iframe
                   className="frame-t2p"
-                  src={`https://api-checkout.t2p.co.th/api/payment/creditcardFrame?token=${token}`}
+                  src={`https://test-api-checkout.t2p.co.th/api/payment/creditcardFrame?token=${token}`}
                 ></iframe>
               </div>
             </div>
